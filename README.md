@@ -1,24 +1,24 @@
-# 🔷 Simple RAG Pipeline
+**Simple RAG Pipeline**
 
-A from-scratch, beginner-friendly implementation of a **Retrieval-Augmented Generation (RAG)** pipeline in Python — no vector databases or heavy frameworks, just NumPy and plain math. Includes a desktop GUI (Tkinter) so you can paste a document, ask a question, and watch each pipeline stage run live.
+A from-scratch, beginner-friendly RAG (Retrieval-Augmented Generation) pipeline in pure Python. No vector databases, no heavy frameworks — just NumPy and plain math. It comes with a simple desktop GUI so you can paste a document, ask a question, and watch every stage of the pipeline run live.
 
-Built for learning: every step (chunking, embeddings, retrieval, augmentation, generation) is implemented manually with the underlying equations documented inline in the notebook.
+This project is built for learning. Every step (chunking, embeddings, retrieval, augmentation, generation) is implemented by hand, with the underlying equations written out right in the notebook.
 
-## ✨ Features
+### Features
 
-- **Chunking** — splits documents into overlapping fixed-size word chunks
-- **TF-IDF Embeddings** — custom implementation (no scikit-learn) with basic English + Arabic tokenization
-- **Cosine Similarity Retrieval** — ranks and returns the top-k most relevant chunks for a query
-- **Prompt Augmentation** — builds a grounded prompt in English or Arabic
-- **Generation** — sends the final prompt to a language model (Phi-3-mini) via the Hugging Face Inference API
-- **GUI** — a simple blue-themed Tkinter interface to run the whole pipeline interactively
+- **Chunking** — splits documents into overlapping fixed-size word chunks  
+- **TF-IDF Embeddings** — custom implementation (no scikit-learn) with basic English + Arabic tokenization  
+- **Cosine Similarity Retrieval** — ranks and returns the top-k most relevant chunks for a query  
+- **Prompt Augmentation** — builds a grounded prompt in English or Arabic  
+- **Generation** — sends the final prompt to Phi-3-mini via the Hugging Face Inference API  
+- **GUI** — a clean blue-themed Tkinter interface so you can run the whole pipeline interactively  
 
-## 🖥️ Requirements
+### Requirements
 
-- Python 3.10+
-- A free [Hugging Face](https://huggingface.co/settings/tokens) account and access token
+- Python 3.10+  
+- A free [Hugging Face](https://huggingface.co/settings/tokens) account and access token  
 
-## ⚙️ Setup
+### Setup
 
 1. Clone the repo:
    ```bash
@@ -26,36 +26,34 @@ Built for learning: every step (chunking, embeddings, retrieval, augmentation, g
    cd <your-repo>
    ```
 
-2. Install dependencies:
+2. Install the dependencies:
    ```bash
    python -m pip install -r requirements.txt
    ```
-   > On Linux, Tkinter may need a separate system package: `sudo apt install python3-tk`
+   On Linux you may also need:  
+   `sudo apt install python3-tk`
 
 3. Set up your Hugging Face token:
    - Copy `.env.example` to `.env`
    - Add your token: `HF_TOKEN=your_token_here`
-   - **Never commit your real `.env` file** — it's already excluded via `.gitignore`
+   - Never commit the real `.env` file (it’s already in `.gitignore`)
 
 4. Open the notebook:
    ```bash
    jupyter notebook Simple_RAG.ipynb
    ```
 
-5. Run all cells in order (`Cell → Run All`). The last cell opens the GUI window.
+5. Run all cells in order (`Cell → Run All`). The last cell launches the GUI.
 
-## 🖼️ How it works
+### How it works
 
 ```
 Document → Chunking → TF-IDF Embeddings → Cosine Similarity Retrieval → Prompt Augmentation → LLM Generation → Answer
 ```
 
-Each stage is documented with its equations directly inside the notebook's markdown cells.
+Each stage is explained with its equations directly in the notebook’s markdown cells.
 
-## ⚠️ Security note
 
-This project reads your Hugging Face token from an **environment variable** (`HF_TOKEN`), not hardcoded in the source — always keep API tokens out of code that goes on GitHub.
+### License
 
-## 📄 License
-
-Feel free to use this project for learning purposes. Add a license of your choice (e.g. MIT) if you plan to share it publicly.
+Feel free to use this project for learning. Add whatever license you prefer.
